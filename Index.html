@@ -1,0 +1,100 @@
+echo "<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>¿Quieres ser mi cita?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #ff1a1a;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .heart-button {
+            position: relative;
+            background-color: #ff4d4d;
+            height: 60px;
+            width: 60px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            padding: 20px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .heart-button:hover {
+            background-color: #ff1a1a;
+            transform: scale(1.1);
+        }
+        .heart-button::before,
+        .heart-button::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background-color: #ff4d4d;
+            border-radius: 50px 50px 0 0;
+            top: -50px;
+        }
+        .heart-button::before {
+            left: -30px;
+        }
+        .heart-button::after {
+            right: -30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .no-button {
+            background-color: #cccccc;
+            color: black;
+            font-size: 16px;
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .no-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Quieres ser mi cita para el 14 de febrero? ❤️</h1>
+    <div class='buttons'>
+        <button class='heart-button' onclick='mostrarMensaje()'>¡Sí! ❤️</button>
+        <button class='no-button' id='noBtn' onclick='noClick()'>No 😢</button>
+    </div>
+    <script>
+        function mostrarMensaje() {
+            alert('¡Sabía que dirías que sí! ❤️🥰');
+        }
+        function noClick() {
+            let botonNo = document.getElementById('noBtn');
+            botonNo.style.position = 'absolute';
+            let x = Math.random() * (window.innerWidth - botonNo.clientWidth);
+            let y = Math.random() * (window.innerHeight - botonNo.clientHeight);
+            botonNo.style.left = `${x}px`;
+            botonNo.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>" > index.html
